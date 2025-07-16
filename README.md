@@ -18,10 +18,15 @@ A Model Context Protocol (MCP) server that provides onchain tools for LLMs, allo
 
 2.  **Set up the environment**
 
-    For Windows, run the setup script:
-    ```bash
-    .\setup.bat
-    ```
+    - **For Windows**:
+      ```bash
+      .\setup.bat
+      ```
+    - **For Linux/macOS**:
+      ```bash
+      chmod +x setup.sh
+      ./setup.sh
+      ```
     This will create a virtual environment, install dependencies, and set up your `.env` file.
 
 3.  **Configure environment variables**
@@ -37,16 +42,30 @@ A Model Context Protocol (MCP) server that provides onchain tools for LLMs, allo
 
 ## Usage
 
-Start the MCP server using the run script:
+Start the MCP server using the appropriate run script:
 
-```bash
-.\run.bat
-```
+- **For Windows**:
+  ```bash
+  .\run.bat
+  ```
+- **For Linux/macOS**:
+  ```bash
+  chmod +x run.sh
+  ./run.sh
+  ```
 
 To see examples of how to use the tools, run:
-```bash
-.\venv\Scripts\python.exe .\examples.py
-```
+
+- **For Windows**:
+  ```bash
+  .\venv\Scripts\python.exe .\examples.py
+  ```
+- **For Linux/macOS**:
+  ```bash
+  source venv/bin/activate
+  python examples.py
+  deactivate
+  ```
 
 ## Available Tools
 
