@@ -1,31 +1,33 @@
-# Solana Trade MCP Server
+# Solana Trade MCP 服务器
 
-A Model Context Protocol (MCP) server that provides onchain tools for LLMs, allowing them to interact with the Solana network.
+一个模型上下文协议（MCP）服务器，为大型语言模型（LLM）提供与 Solana 网络交互的链上工具。
 
-## Features
+[English](./README.md)
 
-- **Account Management**: Create wallets, check SOL and SPL token balances, and get account info.
-- **Transaction Monitoring**: Look up individual transaction details.
-- **Market Data**: Get real-time token prices.
-- **DeFi Integration**: Swap tokens using the Jupiter aggregator.
+## 功能
 
-## Installation
+- **账户管理**：创建钱包、查询 SOL 和 SPL 代币余额、获取账户信息。
+- **交易监控**：查询单笔交易详情。
+- **市场数据**：获取代币的实时价格。
+- **DeFi 集成**：使用 Jupiter 聚合器进行代币交换。
 
-1.  **Clone the repository**
+## 安装
+
+1.  **克隆仓库**
     ```bash
     git clone <repository_url>
     ```
 
-2.  **Set up the environment**
+2.  **设置环境**
     ```bash
     chmod +x setup.sh
     ./setup.sh
     ```
-    This will create a virtual environment, install dependencies, and set up your `.env` file.
+    该命令将创建一个虚拟环境，安装依赖项，并设置您的 `.env` 文件。
 
-3.  **Configure environment variables**
+3.  **配置环境变量**
 
-    Your `.env` file will be created from `.env.example`. You can add your Solana RPC URL and a private key if you intend to perform actions that require signing (not currently implemented).
+    您的 `.env` 文件将根据 `.env.example` 创建。您可以添加您的 Solana RPC URL 和私钥（如果需要执行签名操作，当前未实现）。
 
     ```env
     SOLANA_RPC_URL=https://api.mainnet-beta.solana.com
@@ -34,62 +36,62 @@ A Model Context Protocol (MCP) server that provides onchain tools for LLMs, allo
     DEFAULT_NETWORK=mainnet
     ```
 
-## Usage
+## 使用方法
 
-Start the MCP server using the run script:
+使用运行脚本启动 MCP 服务器：
 
 ```bash
 chmod +x run.sh
 ./run.sh
 ```
 
-To see examples of how to use the tools, run:
+要查看工具使用示例，请运行：
 
 ```bash
 ./run.sh examples
 ```
 
-## Available Tools
+## 可用工具
 
-- `get_balance`: Get SOL balance for a given address.
-- `get_token_balance`: Get the balance of a specific SPL token for a given address.
-- `create_wallet`: Generate a new Solana wallet (keypair).
-- `get_transaction`: Get the details of a specific transaction by its signature.
-- `get_token_price`: Get the current price of a token (e.g., SOL, USDC) from an external API.
-- `get_account_info`: Get detailed, low-level information about a Solana account.
-- `swap_tokens`: Get a swap transaction from Jupiter Aggregator to exchange one token for another.
+- `get_balance`：获取指定地址的 SOL 余额。
+- `get_token_balance`：获取指定地址的特定 SPL 代币余额。
+- `create_wallet`：生成一个新的 Solana 钱包（密钥对）。
+- `get_transaction`：通过交易签名获取特定交易的详细信息。
+- `get_token_price`：从外部 API 获取代币（例如 SOL、USDC）的当前价格。
+- `get_account_info`：获取有关 Solana 账户的详细底层信息。
+- `swap_tokens`：从 Jupiter 聚合器获取交换交易，以将一种代币兑换为另一种代币。
 
-## Using in an IDE (e.g., Cursor)
+## 在 IDE 中使用（例如 Cursor）
 
-To use this MCP server with an AI-powered IDE like Cursor, you can configure it as a custom tool provider.
+要将此 MCP 服务器与像 Cursor 这样的人工智能驱动的 IDE 一起使用，您可以将其配置为自定义工具提供程序。
 
-1.  **Start the Server**: First, ensure the MCP server is running:
+1.  **启动服务器**：首先，确保 MCP 服务器正在运行：
     ```bash
     ./run.sh
     ```
 
-2.  **Configure in Cursor**:
-    - Go to `File > Preferences > Settings`.
-    - Search for `mcp` or `Model Context Protocol`.
-    - In the `Custom MCP Servers` section, add a new entry:
-      - **Name**: `Solana Tools` (or any name you prefer)
-      - **Address**: `stdio` (since this server communicates over stdin/stdout)
-      - **Command**: `[path-to-your-project]/run.sh` (use the absolute path to `run.sh`)
+2.  **在 Cursor 中配置**：
+    - 前往 `文件 > 首选项 > 设置`。
+    - 搜索 `mcp` 或 `模型上下文协议`。
+    - 在 `自定义 MCP 服务器` 部分，添加一个新条目：
+      - **名称**：`Solana Tools`（或任何您喜欢的名称）
+      - **地址**：`stdio`（因为此服务器通过标准输入/输出进行通信）
+      - **命令**：`[项目路径]/run.sh`（使用 `run.sh` 的绝对路径）
 
-3.  **Use the Tools**: Once configured, you can invoke the tools in your chat with the AI. For example:
+3.  **使用工具**：配置完成后，您可以在与 AI 的聊天中调用这些工具。例如：
     ```
     @Solana Tools get_balance --address <some_solana_address>
     ```
 
-    The AI will use the server to execute the command and return the result directly in the chat.
+    AI 将使用该服务器执行命令，并直接在聊天中返回结果。
 
-## Security
+## 安全性
 
-- Never commit private keys to version control
-- Use environment variables for sensitive configuration
-- Test on devnet before mainnet operations
-- Implement proper error handling and validation
+- 切勿将私钥提交到版本控制中
+- 使用环境变量配置敏感信息
+- 在主网操作前先在开发网进行测试
+- 实现适当的错误处理和验证
 
-## License
+## 许可证
 
-MIT License
+MIT 许可证
