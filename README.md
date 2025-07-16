@@ -2,7 +2,7 @@
 
 一个模型上下文协议（MCP）服务器，为大型语言模型（LLM）提供与 Solana 网络交互的链上工具。
 
-[English](./README.md)
+[English](./README.en.md)
 
 ## 功能
 
