@@ -17,16 +17,10 @@ A Model Context Protocol (MCP) server that provides onchain tools for LLMs, allo
     ```
 
 2.  **Set up the environment**
-
-    - **For Windows**:
-      ```bash
-      .\setup.bat
-      ```
-    - **For Linux/macOS**:
-      ```bash
-      chmod +x setup.sh
-      ./setup.sh
-      ```
+    ```bash
+    chmod +x setup.sh
+    ./setup.sh
+    ```
     This will create a virtual environment, install dependencies, and set up your `.env` file.
 
 3.  **Configure environment variables**
@@ -42,30 +36,18 @@ A Model Context Protocol (MCP) server that provides onchain tools for LLMs, allo
 
 ## Usage
 
-Start the MCP server using the appropriate run script:
+Start the MCP server using the run script:
 
-- **For Windows**:
-  ```bash
-  .\run.bat
-  ```
-- **For Linux/macOS**:
-  ```bash
-  chmod +x run.sh
-  ./run.sh
-  ```
+```bash
+chmod +x run.sh
+./run.sh
+```
 
 To see examples of how to use the tools, run:
 
-- **For Windows**:
-  ```bash
-  .\venv\Scripts\python.exe .\examples.py
-  ```
-- **For Linux/macOS**:
-  ```bash
-  source venv/bin/activate
-  python examples.py
-  deactivate
-  ```
+```bash
+./run.sh examples
+```
 
 ## Available Tools
 
@@ -83,7 +65,7 @@ To use this MCP server with an AI-powered IDE like Cursor, you can configure it 
 
 1.  **Start the Server**: First, ensure the MCP server is running:
     ```bash
-    .\run.bat
+    ./run.sh
     ```
 
 2.  **Configure in Cursor**:
@@ -92,7 +74,7 @@ To use this MCP server with an AI-powered IDE like Cursor, you can configure it 
     - In the `Custom MCP Servers` section, add a new entry:
       - **Name**: `Solana Tools` (or any name you prefer)
       - **Address**: `stdio` (since this server communicates over stdin/stdout)
-      - **Command**: `[path-to-your-project]\run.bat` (use the absolute path to `run.bat`)
+      - **Command**: `[path-to-your-project]/run.sh` (use the absolute path to `run.sh`)
 
 3.  **Use the Tools**: Once configured, you can invoke the tools in your chat with the AI. For example:
     ```

@@ -37,15 +37,20 @@ if [ ! -f "$ENV_FILE" ]; then
     exit 1
 fi
 
-# 3. Activate virtual environment and run the server
+# 3. Activate virtual environment
 echo_info "Activating virtual environment..."
 source $VENV_DIR/bin/activate
 
-echo_info "Starting Solana MCP Server..."
-echo_info "Press Ctrl+C to stop the server."
-
-$VENV_DIR/bin/python $SERVER_SCRIPT
+# 4. Check for 'examples' argument
+if [ "$1" == "examples" ]; then
+    echo_info "Running examples..."
+    python examples.py
+else
+    echo_info "Starting Solana MCP Server..."
+    echo_info "Press Ctrl+C to stop the server."
+    $VENV_DIR/bin/python $SERVER_SCRIPT
+fi
 
 # Deactivate on exit
 deactivate
-echo_info "Server stopped and virtual environment deactivated."
+echo_info "Script finished and virtual environment deactivated."}]}}}
